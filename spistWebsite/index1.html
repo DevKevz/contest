@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESS Department</title>
+    <style>
+        /* Dark Theme & Typography */
+        body {
+            background-color: #272525;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #526152;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #ddc97a;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+       header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    background: #1a1a1a; /* Dark background */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Adds a soft shadow */
+    border-radius: 15px; /* Softens the corners */
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, black, rgba(50, 50, 50, 0.8), black);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+header img {
+    width: 300px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.8)); /* Adds depth */
+}
+
+.header-content {
+    text-align: left;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.subtitle {
+    color: #ccc;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cta-btn {
+    background-color: #FFCF50;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 5px 15px rgba(255, 207, 80, 0.4);
+}
+
+.cta-btn:hover {
+    background-color: #E5B93D;
+    box-shadow: 0px 10px 25px rgba(255, 207, 80, 0.6);
+}
+
+
+
+        /* Section Styling */
+        section {
+            padding: 50px;
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ddc97a;
+            text-align: left;
+        }
+
+        .grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            background: #526152;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+        }
+
+    .expertise-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 300px;
+        background-color: #A4B465;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .full-text {
+        display: none;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .read-more-btn {
+        background-color: #626F47;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .read-more-btn:hover {
+        background-color: #515A36;
+    }
+         
+/* Programs Grid */
+.program-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.program-card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.program-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+ .card-front,.card-back {
+    background: #A4B465;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.card-front img {
+    width: 100%; /* Make image responsive to the card */
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image fits properly */
+    border-radius: 10px;
+}
+
+.card-front { background: #A4B465; color: white; }
+.card-back { background: #FFCF50; color: #626F47; transform: rotateY(180deg); }
+    
+    .pic {
+    display: flex; /* Align images side by side */
+    justify-content: center; /* Center the images */
+    gap: 20px; /* Adds equal spacing between images */
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+.pic img {
+    width: 100%; /* Makes images responsive */
+    max-width: 600px; /* Limits max width */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow */
+}
+
+     /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 10;
+            border-radius: 10px;
+        }
+
+         .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .slide {
+        display: none;
+    }
+
+    .slide img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Fade effect */
+    .fade {
+        animation: fadeEffect 1.5s;
+    }
+
+    @keyframes fadeEffect {
+        from {opacity: 0.4} 
+        to {opacity: 1}
+    }
+
+    /* Navigation Buttons */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+        
+#testimonials {
+    text-align: center;
+    padding: 50px;
+    background: #1a1a1a; /* Dark background for contrast */
+    color: white;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffcf50; /* Gold color */
+}
+
+.testimonials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    position: relative;
+    background: #333;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transition: transform 0.6s, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glow effect on hover */
+.testimonial:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 207, 80, 0.5); /* Soft gold glow */
+}
+
+/* Background pop-up effect */
+.testimonial::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 207, 80, 0.2); /* Gold overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.testimonial:hover::before {
+    opacity: 1;
+}
+
+
+        /* FAQ */
+        .faq-item {
+            background: #333;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            display: none;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#programs">Events</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="accessLogo.png" alt="ACCESS Logo" width="500" height="500">
+        <div class="header-content">
+            <h1>ACCESS DEPARTMENT</h1>
+            <p class="subtitle">The ACCESS Department is a combination of computer experts and specialized students from
+                the fields of Information Technology (BSIT), Computer Science (BSCS), and Computer Engineering (BSCpE).</p>
+            <a href="https://www.facebook.com/media/set/?set=a.122215934876193014&type=3"><button class="cta-btn">Join Us</button></a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Who We Are</h2>
+        <p class="subtitle">ACCESS is dedicated to bridging the gap between theory and practice, ensuring that students gain not only a strong
+        academic foundation but also hands-on experience with real-world applications. By integrating cutting-edge
+        technologies, industry-driven projects, and collaborative learning ACCESS equips students with the technical
+        expertise, problem-solving abilities, and innovative mindset required to thrive in today’s rapidly evolving tech
+        industry.
+        
+        Through workshops, research initiatives, hackathons, internships, and partnerships with industry leaders, ACCESS
+        provides students with practical exposure to emerging trends such as artificial intelligence, cybersecurity, cloud
+        computing, and software development. By fostering a culture of continuous learning and adaptability, ACCESS
+        prepares its members to take on the challenges of the digital age, ensuring they remain competitive and ready to
+        contribute to the advancement of technology.</p>
+        
+        <div class="pic">
+    <img src="f1.jpg" alt="ACCESS Logo" width="600" height="400">
+    <img src="f2.jpg" alt="ACCESS Logo" width="600" height="400">
+</div>
+        
+    </section>
+    
+
+    <section id="expertise">
+        <h2>OUR EXPERTISE</h2>
+        <div class="expertise-container">
+            <div class="card" onclick="toggleReadMore(this)">
+                <h3>BSIT</h3>
+                <p class="short-text">The Bachelor of Science in Information Technology (BSIT) program focuses on...</p>
+                <p class="full-text">
+                    The Bachelor of Science in Information Technology (BSIT) program focuses on providing students with a comprehensive
+                    understanding of IT solutions, cybersecurity, and web development. It is designed to equip future professionals with the
+                    technical skills and problem-solving abilities needed to address modern technological challenges.
+                    
+                    In the field of IT solutions, BSIT students learn how to design, develop, and implement technology-driven systems that
+                    improve efficiency and productivity across various industries. This includes software applications, enterprise systems,
+                    cloud computing, and database management, all of which play a crucial role in modern business operations.
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+    
+            <div class="card" onclick="toggleReadMore(this)">
+                <h3>BSCS</h3>
+                <p class="short-text">The Bachelor of Science in Computer Science (BSCS) program is centered on...</p>
+                <p class="full-text">
+                    The Bachelor of Science in Computer Science (BSCS) program is centered on the study of algorithms, artificial
+                    intelligence (AI), and software development, providing students with a deep understanding of computational theories,
+                    problem-solving techniques, and advanced programming concepts. This program prepares students to design and develop
+                    innovative software solutions that drive technological advancements across various industries.
+                    
+                    In the field of algorithms, BSCS students learn to analyze, design, and optimize computational processes that enable
+                    efficient problem-solving. They explore data structures, complexity analysis, and algorithmic paradigms such as divide
+                    and conquer, dynamic programming, and graph theory. These fundamental concepts are essential for developing
+                    high-performance applications and systems.
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+    
+            <div class="card" onclick="toggleReadMore(this)">
+                <h3>BSCpE</h3>
+                <p class="short-text">The Bachelor of Science in Computer Engineering (BSCpE) program is designed to equip
+                    students...</p>
+                <p class="full-text">
+                    The Bachelor of Science in Computer Engineering (BSCpE) program is designed to equip students with expertise in hardware
+                    engineering, embedded systems, and robotics. This interdisciplinary field merges the principles of electrical
+                    engineering and computer science, enabling graduates to design, develop, and optimize computing hardware and intelligent
+                    systems.
+                    
+                    In the field of hardware engineering, BSCpE students study the architecture and design of computer components,
+                    microprocessors, circuit boards, and networking devices. They gain hands-on experience in digital logic design, computer
+                    architecture, and system integration, allowing them to develop and enhance computing hardware for various applications,
+                    from consumer electronics to high-performance computing.
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="section">
+        <h2>Our Events</h2>
+        <div class="program-grid">
+            <div class="program-card">
+                <a href="https://www.facebook.com/media/set/?set=a.122215934876193014&type=3">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="week1.jpg" alt="Event 1">
+                            <h3>ACCESS Week!</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Celebrating Innovation, Technology, and Excellence</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="program-card">
+                <a href="https://www.facebook.com/media/set/?set=a.122160565742193014&type=3">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="legacy.jpg" alt="Event 2">
+                            <h3>ACCESS Legacy Project</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Shaping the Future of Technology</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="program-card">
+                <div class="card-inner">
+                    <a href="https://www.facebook.com/media/set/?set=a.122192748740193014&type=3">
+                        <div class="card-front">
+                            <img src="agt.jpg" alt="Event 3">
+                            <h3>ACCESS Got Talent</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Unleashing Creativity Beyond Technology</p>
+                        </div>
+                </div>
+                </a>
+            </div>
+            <div class="program-card">
+                <div class="card-inner">
+                    <a href="https://www.facebook.com/photo/?fbid=122210710526193014&set=pb.61555790441208.-2207520000">
+                        <div class="card-front">
+                            <img src="feb.jpg" alt="Event 4">
+                            <h3>ACCESS Feb-Ibig</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>A Celebration of Love and Friendship ❤️💻</p>
+                        </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="1.jpg" alt="Event 1">
+            </div>
+            <div class="slide fade">
+                <img src="2.jpg" alt="Event 2">
+            </div>
+            
+            <div class="slide fade">
+                <img src="4.jpg" alt="Event 4">
+            </div>
+           
+            <div class="slide fade">
+                <img src="6.jpg" alt="Event 2">
+            </div>
+            <div class="slide fade">
+                <img src="7.jpg" alt="Event 3">
+            </div>
+            <div class="slide fade">
+                <img src="8.jpg" alt="Event 4">
+            </div>
+            <div class="slide fade">
+                <img src="9.jpg" alt="Event 3">
+            </div>
+            <div class="slide fade">
+                <img src="10.jpg" alt="Event 4">
+            </div>
+    
+            <!-- Navigation Buttons -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="testimonials">
+            <div class="testimonial">“ACCESS changed my career path! The hands-on projects were the best.”</div>
+            <div class="testimonial">“Thanks to ACCESS, I landed my dream job in cybersecurity!”</div>
+            <div class="testimonial">“The community here is amazing. You learn and grow together.”</div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">Q: How do I join ACCESS? <p>A: Simply click the ‘Join Us’ button and like our page.</p>
+        </div>
+        <div class="faq-item">Q: Do I need prior knowledge? <p>A: No, we welcome all skill levels!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ACCESS Department. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".cta-btn").addEventListener("mouseover", function () {
+                this.style.boxShadow = "0px 0px 20px rgba(255, 235, 59, 0.8)";
+            });
+            document.querySelector(".cta-btn").addEventListener("mouseout", function () {
+                this.style.boxShadow = "none";
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll("a[href^='#']").forEach(anchor => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+                });
+            });
+        });
+
+        document.querySelectorAll(".faq-item").forEach(item => {
+                item.addEventListener("click", () => item.classList.toggle("active"));
+            });
+
+              let slideIndex = 0;
+
+                function showSlides() {
+                    let slides = document.querySelectorAll(".slide");
+                    slides.forEach(slide => slide.style.display = "none"); // Hide all slides
+                    slideIndex++;
+                    if (slideIndex > slides.length) { slideIndex = 1 }
+                    slides[slideIndex - 1].style.display = "block"; // Show current slide
+                    setTimeout(showSlides, 3000); // Change slide every 3 seconds
+                }
+
+                function changeSlide(n) {
+                    let slides = document.querySelectorAll(".slide");
+                    slides[slideIndex - 1].style.display = "none"; // Hide current slide
+                    slideIndex += n;
+                    if (slideIndex > slides.length) { slideIndex = 1 }
+                    if (slideIndex < 1) { slideIndex = slides.length }
+                    slides[slideIndex - 1].style.display = "block"; // Show new slide
+                }
+
+                document.addEventListener("DOMContentLoaded", showSlides);
+                        function toggleReadMore(card) {
+                            let fullText = card.querySelector(".full-text");
+                        let shortText = card.querySelector(".short-text");
+                        let button = card.querySelector(".read-more-btn");
+
+                        if (fullText.style.display === "none" || fullText.style.display === "") {
+                            fullText.style.display = "block";
+                        shortText.style.display = "none";
+                        button.innerText = "Read Less";
+        } else {
+                            fullText.style.display = "none";
+                        shortText.style.display = "block";
+                        button.innerText = "Read More";
+        }
+    }
+                </script>
+    </script>
+</body>
+
+</html>
